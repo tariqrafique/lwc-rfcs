@@ -158,6 +158,7 @@ This RFC does introduce minor (or minimal) breaking changes:
 * Minor semantic change in the descriptor installed on the prototype of the component by the `@wire` decorator. The component author could change the value of the field, and it will not be reactive, causing no side effects on the UI of the element.
 * Removal of the experimental `decorate` function exposed in `lwc`.
 * `@lwc/wire-services`'s `register()` cannot accept a symbol as the adapter id anymore, authors will have to replace that with a function or an arrow function must likely.
+* `@lwc/wire-services`'s `register()` should be called with the adapter id before it is consumed by components, preferebly should be called before it is exported.
 
 ### Forward Compatible Changes
 
