@@ -80,6 +80,8 @@ defined here.
 
 The approach here is to replace the current instrumentation points that call into the browser's performance timing api with a call to log the operations into a dedicated profiler buffer instead. At that point we can choose to generate performance marks as well if we're not in production mode.
 
+
+
 ## Drawbacks
 
 Why should we *not* do this? Please consider:
