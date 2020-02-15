@@ -14,7 +14,7 @@ Talk about profiler hooks replacing the current calls to log performance timing
 Profiler hooks method signature to capture data
 
 Clear profiler interface and what will then need to belong within the lwc engine if we're going to implement the profiler interface. 
---- TODOs
+---- TODOs
 
 ## Summary
 
@@ -80,6 +80,22 @@ defined here.
 
 The approach here is to replace the current instrumentation points that call into the browser's performance timing api with a call to log the operations into a dedicated profiler buffer instead. At that point we can choose to generate performance marks as well if we're not in production mode.
 
+We have 2 choices with the profiler buffer. Does it remain with LWC or stay outside ? 
+
+### Profiler API
+
+```javascript
+/**
+ * @param {number} operationId 
+ * @param {string} cmpName
+ * @param {number} cmpId
+ * @param {number} parentId 
+ */
+function logOperationStart(operationId, cmpName, cmpId, parentId){};
+function logOperationStop (operationId, cmpName, cmpId, parentId){};
+
+
+```
 
 
 ## Drawbacks
