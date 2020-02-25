@@ -62,7 +62,7 @@ profilerApi.setBuffer(buffer, fnMapStringToInt);
 
 ## Motivation
 
-The performance-timing rfc implementation made it easy to visualize lwc lifecycle events in chrome dev tools. Unfortunately the methodology (browser performance marks) of instrumenting these events was resource heavy, resulting in more than 25% degradation in lwc performance metrics. Thus this collection is only possible in DEV mode. 
+The [performance-timing rfc](./0102-performance-timing.md) implementation made it easy to visualize lwc lifecycle events in chrome dev tools. Unfortunately the methodology (browser performance marks) of instrumenting these events was resource heavy, resulting in more than 25% degradation in lwc performance metrics. Thus this collection is only possible in DEV mode. 
 
 The information collected in these lifecycle events that can be used to understand part of why a customer scenario is slow in production and to get back information on how much cpu was used by lwc lifecycle phases and what components were responsible for that. If we couple this information with the time spent servicing data requests for components, we can get a reasonable estimate of end to end loading performance of a component. 
 
@@ -78,9 +78,9 @@ implementation to implement. This should get into specifics and corner-cases,
 and include examples of how the feature is used. Any new terminology should be
 defined here.
 
-The approach here is to replace the current instrumentation points that call into the browser's performance timing api with a call to log the operations into a dedicated profiler buffer instead. At that point we can choose to generate performance marks as well if we're not in production mode.
+The approach here is to replace the current instrumentation points that call into the browser's performance timing api with a call to log the operations into a dedicated profiler buffer instead. At that point, in addition to logging to the profiler buffer, we can choose to generate performance marks as well if we're not in production mode.
 
-We have 2 choices with the profiler buffer. Does it remain with LWC or stay outside ? 
+We have 2 choices with the profiler buffer. Does it remain with LWC or stay outside ? If we want to keep the profiler buffer within 
 
 ### Profiler API
 
