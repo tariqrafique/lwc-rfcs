@@ -94,6 +94,11 @@ We have 2 choices with the profiler buffer. Does it remain with LWC or stay outs
 function logOperationStart(operationId, cmpName, cmpId, parentId){};
 function logOperationStop (operationId, cmpName, cmpId, parentId){};
 
+function getAndLockBuffer();
+
+function unlockBuffer();
+
+function initializeBuffer(size);
 
 ```
 
